@@ -1,8 +1,8 @@
 # Module that holds the class of training participants
 
-class Human(object):
+class Human:
 
-    def __init__(self, first_name, last_name):
+    def __init__(self, first_name: str, last_name: str):
         self._first_name = first_name
         self._last_name = last_name
         self._full_name = f"{first_name} {last_name}"
@@ -52,18 +52,17 @@ class Participant(Human):
         else:
             self.avgs_coupons[avgs.nr] = avgs
 
+
 def main():
     human = Human(first_name="Joe", last_name="Doe")
     print(human)
     print(human.first_name)
-    human.last_name ="Richardson"
+    human.last_name = "Richardson"
     print(human)
 
     ahmed = Participant(first_name="Ahmed", last_name="Muhadi")
     print(ahmed)
 
-    ahmed.full_name = "Peter Bauer"
-    print(ahmed.full_name)
 
 if __name__ == '__main__':
     main()
