@@ -1,0 +1,93 @@
+DEV IDEAS
+
+I ABOUT
+• What is the software application or feature?
+An application to automate various functionalities for BL such as time tracking of coaching, invoice creation, participant certificates, coaching documentation.
+
+• Who’s it intended for?
+It is intended to be used by BL employees.
+
+• What problem does the software solve?
+It is intended to automate routine tasks that have to be repeated over and over again.
+
+• How is it going to work?
+The software is supposed to retrieve data from a database and display them in a GUI that allows the user to create various outputs such as pdfs or excel documents.
+
+• What are the main concepts that are involved and how are they related?
+?
+
+II USER INTERFACE
+• What are the main user stories (happy flows + alternative flows)?
+a) BL employee creates, reads, updates, or deletes a database entry for a coaching participant.
+b) BL employee creates output for various use cases such as 
+ba) invoices, 
+bb) time tracking sheets that need to be signed by the participant and the coaches
+bc) participation certificates
+bd) documentation document of coachings
+be) personalized memorandum of understanding for the participant and/or the coach at the beginning of the training
+
+• If you’re adding a new feature to an existing software application, what impact does the feature
+have on the overall structure of the interface? (e.g. are there big changes in the organization of
+menus, navigation, and so on?)
+The application should have two options at the beginning
+a) Database operations, i.e. CRUD
+b) Output operations that should easily be extendible by additional options
+
+III TECHNICAL SPECIFICATION
+• What technical details need developers to know to develop the software or new feature?
+a) Python
+b) SQL
+
+• Are there new tables to add to the database? What fields?
+Yes, the tables to the database should be
+a) BL employee
+b) Participant
+c) Coach
+c) AVGS Gutschein
+e) Maßnahmen
+d) Coachings
+f) Coaching hours
+g) Job Center
+h) Output
+
+• How will the software technically work? Are there particular algorithms or libraries that are
+important?
+a) Database likely to be developed with SQLLite and SQLLiteStudio
+b) GUI with tkinter
+c) PDF with reportlab
+
+• What will be the overall design? Which classes are needed? What design patterns are used to
+model the concepts and relationships?
+Still to be clarified, maybe use UML diagram and consider SOLID
+
+• What third-party software is needed to build the software or feature?
+a) python libraries
+b) SQLLite
+
+IV TESTING and SECURITY
+• Are there specific coverage goals for the unit tests?
+• What kinds of tests are needed (unit, regression, end-to-end, etc)?
+• (new feature only) Are there any potential side-effects on other areas of the application when
+adding this feature?
+• What security checks need to be in place to allow the software to ship?
+• (new feature only) How does the feature impact the security of the software? Is there a need for
+a security audit before the feature is shipped?
+
+V DEPLOYMENT
+• Are there any architectural or DevOps changes needed (e.g. adding an extra microservice,
+changes in deployment pipelines, adding secrets to services)?
+• Are there any migration scripts that need to be written?
+
+VI PLANNING
+• How much time will developing the software or feature cost?
+• What are the steps and how much time does step take?
+• What are the developmental milestones and in what order?
+• What are the main risk factors and are there any alternative routes to take if you find out
+something isn’t feasible?
+• What parts are absolutely required, and what parts can optionally be done at a later stage? (i.e.
+the Definition of Done)
+
+VII BROADER CONTEXT
+• What are limitations of the current design?
+• What are possible extensions to think about for the future?
+• Any other considerations?
