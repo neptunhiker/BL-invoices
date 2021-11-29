@@ -101,7 +101,10 @@ aa) Planning: 1 hour
 ab) Writing unit tests: 4 hours
 ac) Implementation: GUI preparation 4 hours and functionality implementation: 4 hours
 
-b) ...
+b) User is able to generate an invoice
+ba) Planning: 0.5 hours
+bb) Writing unit tests: 1 hour
+bc) Implementation: GUI preparation 2 hours and functionality implementation: 4 hours
 
 • What are the steps and how much time does step take?
 a) Prepare GUI
@@ -110,17 +113,34 @@ b) Implement functionality
 • What are the developmental milestones and in what order?
 a) Set up a database
 b) Prepare the GUI flow
+c) Prepare output formats
 
 
 • What are the main risk factors and are there any alternative routes to take if you find out
 something isn’t feasible?
 a) Database is deleted or corrupted
-
+b) Application fails and cannot be used by BL (e.g. due to Mac issues, dependency problems in virtual env)
+c) Application produces erroneous data
 
 • What parts are absolutely required, and what parts can optionally be done at a later stage? (i.e.
 the Definition of Done)
+a) Database has to be bullet proof, i.e.
+aa) Password protected
+ab) Backup system in place
 
 VII BROADER CONTEXT
 • What are limitations of the current design?
+a) No executable file, i.e. python needs to be run
+b) Update support has to be done by Developer throught GitHub pull
+
 • What are possible extensions to think about for the future?
+a) Develop into CRM system
+b) Have a comment section attached to a participant/coach
+c) Allow for email communication through the GUI
+d) Have all documents related to a client stored in database
+e) Have a reminder system for creating invoices
+f) Connect the data to an analytics functionality that shows e.g. the number of coaching hours in a given time frame
+g) Create a dashboard from the database
+
 • Any other considerations?
+a) Discussion with BL needed for every use case (i.e. requirements need to be made clear from the beginning)
