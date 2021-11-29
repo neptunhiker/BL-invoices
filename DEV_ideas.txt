@@ -18,7 +18,7 @@ The software is supposed to retrieve data from a database and display them in a 
 
 II USER INTERFACE
 • What are the main user stories (happy flows + alternative flows)?
-a) BL employee creates, reads, updates, or deletes a database entry for a coaching participant.
+a) BL employee creates, reads, updates, or deletes a database entry.
 b) BL employee creates output for various use cases such as 
 ba) invoices, 
 bb) time tracking sheets that need to be signed by the participant and the coaches
@@ -66,24 +66,57 @@ b) SQLLite
 
 IV TESTING and SECURITY
 • Are there specific coverage goals for the unit tests?
+a) Ensure that access to the database is password secured
+b) Ensure that invoices are determined correctly
+c) Ensure that invoices are not created twice in the database
+
 • What kinds of tests are needed (unit, regression, end-to-end, etc)?
+a) Unit tests
+b) Regression tests for software changes
+
 • (new feature only) Are there any potential side-effects on other areas of the application when
 adding this feature?
+To be explored further
+
 • What security checks need to be in place to allow the software to ship?
+a) Database needs to have some kind of automatic back-up feature
+b) Access to the database needs to be password-restricted
+
 • (new feature only) How does the feature impact the security of the software? Is there a need for
 a security audit before the feature is shipped?
+No
 
 V DEPLOYMENT
 • Are there any architectural or DevOps changes needed (e.g. adding an extra microservice,
 changes in deployment pipelines, adding secrets to services)?
+No
+
 • Are there any migration scripts that need to be written?
+No
 
 VI PLANNING
 • How much time will developing the software or feature cost?
+a) User is able to execute CRUD operations on the database
+aa) Planning: 1 hour
+ab) Writing unit tests: 4 hours
+ac) Implementation: GUI preparation 4 hours and functionality implementation: 4 hours
+
+b) ...
+
 • What are the steps and how much time does step take?
+a) Prepare GUI
+b) Implement functionality
+
 • What are the developmental milestones and in what order?
+a) Set up a database
+b) Prepare the GUI flow
+
+
 • What are the main risk factors and are there any alternative routes to take if you find out
 something isn’t feasible?
+a) Database is deleted or corrupted
+
+
 • What parts are absolutely required, and what parts can optionally be done at a later stage? (i.e.
 the Definition of Done)
 
