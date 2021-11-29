@@ -49,6 +49,7 @@ d) Coachings
 f) Coaching hours
 g) Job Center
 h) Output
+i) Invoices
 
 • How will the software technically work? Are there particular algorithms or libraries that are
 important?
@@ -108,7 +109,8 @@ bc) Implementation: GUI preparation 2 hours and functionality implementation: 4 
 
 • What are the steps and how much time does step take?
 a) Prepare GUI
-b) Implement functionality
+b) Prepare the databases (PRD and ACC)
+c) Implement functionality
 
 • What are the developmental milestones and in what order?
 a) Set up a database
