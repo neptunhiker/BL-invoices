@@ -29,11 +29,11 @@ class PDFInvoice(PDFReport):
 
     def __init__(self, participant_name, participant_title, participant_id, avgs_coupon_nr,
                  invoice_nr, time_period_start, time_period_end, nr_of_training_lessons, cost_per_training_lesson,
-                 training_name, creation_date=datetime.date.today()):
+                 training_name, payment_horizon=14, creation_date=datetime.date.today()):
         self.creation_date = creation_date
         self.date_for_title = creation_date.strftime('%Y-%m-%d')
         self.date_for_invoice = helpers.format_to_german_date(self.creation_date)
-        self.payment_horizon
+        self.payment_horizon = payment_horizon
         self.latest_payment_date = self.creation_date + datetime.timedelta(days=self.payment_horizon)
         name = f"{self.date_for_title} BeginnerLuft Rechnung {participant_name}"
         super().__init__()
@@ -232,13 +232,13 @@ class PDFInvoice(PDFReport):
 
 
 if __name__ == '__main__':
-    pdf = PDFInvoice(participant_name="Samer Kassem",
+    pdf = PDFInvoice(participant_name="Max Mustermann",
                      participant_title="Herr",
-                     participant_id="955D551295",
-                     invoice_nr="202110-74",
+                     participant_id="1234567-AB",
+                     invoice_nr="202110-99",
                      time_period_start=datetime.date(year=2021, month=8, day=9),
                      time_period_end=datetime.date(year=2021, month=10, day=31),
-                     nr_of_training_lessons=48,
-                     cost_per_training_lesson=64.81,
+                     nr_of_training_lessons=40,
+                     cost_per_training_lesson=12.34,
                      training_name="Individuelles Berufscoaching",
-                     avgs_coupon_nr="sdlfjas-34")
+                     avgs_coupon_nr="9876-asdf")
