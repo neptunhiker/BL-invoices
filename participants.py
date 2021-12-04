@@ -1,5 +1,5 @@
 # Module that holds the class of training participants
-
+# test comment
 class Human:
 
     def __init__(self, first_name: str, last_name: str):
