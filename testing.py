@@ -2,7 +2,8 @@ import datetime
 import unittest
 
 from avgs import AVGSCoupon
-from helpers import format_to_german_date, determine_payment_target_date
+from custom_exceptions import DateFormatException
+from helpers import format_to_german_date, determine_payment_target_date, parse_date_from_string
 from participants import Participant
 
 
@@ -114,6 +115,89 @@ class TestsPaymentHorizon(unittest.TestCase):
         date = datetime.date(year=2022, month=1, day=12)
         payment_horizon_in_days = "14"
         self.assertRaises(Exception, determine_payment_target_date, date, payment_horizon_in_days)
+
+
+class TestParseDateString(unittest.TestCase):
+
+    def test_parse_date_string(self):
+        datestring = "2021-10-22"
+        target_output = datetime.date(year=2021, month=10, day=22)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "21-10-22"
+        target_output = datetime.date(year=2021, month=10, day=22)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "2021-1-08"
+        target_output = datetime.date(year=2021, month=1, day=8)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "2021-01-08"
+        target_output = datetime.date(year=2021, month=1, day=8)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "2021-1-8"
+        target_output = datetime.date(year=2021, month=1, day=8)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "2021-01-08"
+        target_output = datetime.date(year=2021, month=1, day=8)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "21-1-08"
+        target_output = datetime.date(year=2021, month=1, day=8)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "21-01-08"
+        target_output = datetime.date(year=2021, month=1, day=8)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "21-1-8"
+        target_output = datetime.date(year=2021, month=1, day=8)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "21-01-08"
+        target_output = datetime.date(year=2021, month=1, day=8)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "23.04.2021"
+        target_output = datetime.date(year=2021, month=4, day=23)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "23.4.2021"
+        target_output = datetime.date(year=2021, month=4, day=23)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "23.04.21"
+        target_output = datetime.date(year=2021, month=4, day=23)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "03.04.2021"
+        target_output = datetime.date(year=2021, month=4, day=3)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+        datestring = "3.4.2021"
+        target_output = datetime.date(year=2021, month=4, day=3)
+        func_output = parse_date_from_string(datestring)
+        self.assertEqual(func_output, target_output)
+
+    def test_bad_input(self):
+        datestring = "something"
+        self.assertRaises(DateFormatException, parse_date_from_string, datestring)
 
 
 if __name__ == '__main__':

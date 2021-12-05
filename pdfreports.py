@@ -67,7 +67,7 @@ class PDFInvoice(PDFReport):
 
         # Defining the size-structure of the report
         self.col_widths = [0.1 * self.width, 0.8 * self.width, 0.1 * self.width]
-        self.row_heights = [0.15 * self.height, 0.75 * self.height, 0.1 * self.height]
+        self.row_heights = [0.17 * self.height, 0.73 * self.height, 0.1 * self.height]
 
         # Creating the main table of the report
         main_table = Table([

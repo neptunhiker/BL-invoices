@@ -1,5 +1,6 @@
 import datetime
 
+from custom_exceptions import DateFormatException
 
 def format_to_german_date(date):
     """Converts a date into a German string date format"""
@@ -28,3 +29,35 @@ def determine_payment_target_date(date, payment_horizon_in_days):
 
     else:
         raise Exception
+
+def parse_date_from_string(datestring):
+    """Parses dates in various formats to datetime.date object"""
+
+    try:
+        return datetime.datetime.fromisoformat(datestring).date()
+
+    except ValueError:
+
+        if "-" in datestring:
+            year, month, day = datestring.split("-")
+            sep = "-"
+        elif "." in datestring:
+            day, month, year = datestring.split(".")
+            sep = "."
+        else:
+            raise DateFormatException
+
+        if len(year) == 2:
+            year_format = "%y"
+        elif len(year) == 4:
+            year_format = "%Y"
+
+        if sep == "-":
+            parsing_format = f"{year_format}{sep}%m{sep}%d"
+        elif sep == ".":
+            parsing_format = f"%d{sep}%m{sep}{year_format}"
+
+        return datetime.datetime.strptime(datestring, parsing_format).date()
+
+
+
